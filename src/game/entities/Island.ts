@@ -1,10 +1,6 @@
 import { Container, Graphics, Sprite } from 'pixi.js'
 import { AssetManager, type AssetKey } from '../systems/AssetManager'
 
-/**
- * Irregular blob that never exceeds `radius`, so the visible sand edge always sits
- * inside the circular collision shape (ships stop where the island visibly ends).
- */
 function blob(radius: number, phase: number, steps = 64): number[] {
   const points: number[] = []
   const p1 = phase * 1.7 + 0.3

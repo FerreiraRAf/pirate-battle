@@ -21,13 +21,9 @@ export type AssetKey =
 
 const TILES = '/assets/png/default/tiles'
 
-/**
- * Single source of truth for combat assets.
- * Tile files are named tile_N.png (no zero padding). To try another tile, just change its number.
- */
 const MANIFEST: Record<AssetKey, string> = {
-  player: '/assets/png/default/ships/ship_1.png',
-  chaser: '/assets/png/default/ships/ship_2.png',
+  player: '/assets/png/default/ships/ship_2.png',
+  chaser: '/assets/png/default/ships/ship_6.png',
   shooter: '/assets/png/default/ships/ship_3.png',
   cannonball: '/assets/png/default/ship_parts/cannon_ball.png',
   explosion: '/assets/png/default/effects/explosion_1.png',

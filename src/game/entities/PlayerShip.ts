@@ -8,15 +8,14 @@ import { Projectile } from './Projectile'
 type ShootFn = (projectile: Projectile) => void
 
 export class PlayerShip {
-  /** Positioned container. It does NOT rotate, so the health bar stays upright. */
   public readonly container = new Container()
   public readonly radius: number
   public readonly maxHp: number
   public hp: number
-  public heading = -Math.PI / 2 // facing up
+  public heading = -Math.PI / 2 // Virado para cima
 
   private readonly config: GameConfig
-  private readonly shipLayer = new Container() // rotates with heading
+  private readonly shipLayer = new Container() 
   private readonly body: Sprite | Graphics
   private readonly healthBar = new Graphics()
 
