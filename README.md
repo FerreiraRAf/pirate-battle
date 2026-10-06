@@ -3,23 +3,8 @@
 Shooter naval 2D com visão superior, feito com **React**, **TypeScript** e **PixiJS**.
 Navegue entre ilhas, afunde navios inimigos e faça o máximo de pontos antes do tempo acabar.
 
-**Demo online:** `<url-da-vercel>`
+**Demo online:** `https://pirate-battle-bice.vercel.app/`
 
-## Status do projeto
-
-| Área | Status |
-|---|---|
-| Gameplay (movimento, tiros, inimigos, ilhas, colisões) | Pronto |
-| Regras da partida (cronômetro, fim de jogo, pausa, pausa automática, reinício) | Pronto |
-| Menus e HUD | Pronto |
-| Tela de Options (tempo da partida e intervalo de spawn) | Em andamento (a validação já está em `src/game/config.ts`) |
-| Controles de toque | Planejado |
-| Ranking e Match History (Axios, TanStack Query, MSW) | Planejado |
-| Cenários de falha de rede | Planejado |
-| Testes E2E e regressão visual com Playwright | Planejado |
-| Profiling de performance | Planejado |
-
-> Atualize esta tabela a cada item entregue. Só marque como pronto o que já funciona na versão publicada.
 
 ## Tecnologias
 
@@ -28,9 +13,6 @@ Navegue entre ilhas, afunde navios inimigos e faça o máximo de pontos antes do
 | Interface e menus | React |
 | Renderização do jogo | PixiJS v8 |
 | Ferramenta de build | Vite |
-| Estado remoto (planejado) | TanStack Query + Axios |
-| Mock das APIs (planejado) | MSW |
-| Testes E2E (planejado) | Playwright |
 
 ## Como rodar
 
@@ -110,24 +92,6 @@ src/
     utils/           collision, math (RNG com seed), visuals
 public/assets/       Assets do jogo
 ```
-
-As decisões de projeto estão em `ARCHITECTURE.md`.
-
-## Cenários de rede e simulação de falhas
-
-*Planejado.* Esta seção vai explicar como escolher um cenário (sucesso, listas vazias, várias páginas, lentidão, timeout, erros 4xx/5xx, respostas fora de ordem, recuperação após timeout), como restaurar o estado dos mocks e como reproduzir cada falha.
-
-## Testes
-
-*Planejado.* Testes E2E com Playwright em desktop e mobile (Chromium) e regressão visual. Os comandos, o local do relatório e as instruções para abrir os traces serão listados aqui.
-
-## Performance
-
-*Planejado.* Taxa de quadros, percentil 95 do tempo entre frames e quantidade de entidades em uma partida de três minutos, além da verificação de memória após cinco ciclos de iniciar, jogar e sair. Hardware, navegador e resolução serão documentados aqui.
-
-## Assets e licenças
-
-A arte do jogo vem do pacote de assets fornecido com o desafio. `<Escreva aqui o nome do pacote, o autor e a licença, além de fontes ou sons que você adicionar.>`
 
 ## Limitações conhecidas
 
