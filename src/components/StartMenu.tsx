@@ -1,10 +1,10 @@
 import React, { useId, useState } from 'react'
+import './StartMenu.css'
 
 interface StartMenuProps {
   onStartGame: (captainName: string) => void
 }
 
-// All visible text in one place (the challenge requires an English UI: translate here).
 const TEXT = {
   title: 'Batalha Naval dos Piratas',
   tagline: 'Afunde os navios inimigos antes que o tempo acabe.',
@@ -17,8 +17,6 @@ const TEXT = {
   rightAction: 'Bordada direita (3 canhões)',
   start: 'Ir para a batalha',
 }
-
-const TILES = '/assets/png/default/tiles'
 
 export const StartMenu: React.FC<StartMenuProps> = ({ onStartGame }) => {
   const [captainName, setCaptainName] = useState('')
@@ -33,13 +31,12 @@ export const StartMenu: React.FC<StartMenuProps> = ({ onStartGame }) => {
 
   return (
     <main className="sm-root">
-      <style>{css}</style>
 
       <div className="sm-layout">
         <section className="sm-hero">
           <img
             className="sm-ship"
-            src="/assets/png/default/ships/ship_1.png"
+            src="/assets/png/default/ships/ship_2.png"
             alt=""
             onError={(e) => (e.currentTarget.style.display = 'none')}
           />
@@ -103,150 +100,3 @@ export const StartMenu: React.FC<StartMenuProps> = ({ onStartGame }) => {
     </main>
   )
 }
-
-const css = `
-.sm-root {
-  position: fixed;
-  inset: 0;
-  z-index: 30;
-  overflow-y: auto;
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  box-sizing: border-box;
-  background-color: #29b6d8;
-  background-image: url('${TILES}/tile_73.png');
-  background-size: 192px;
-  animation: sm-drift 60s linear infinite;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #3b2a1a;
-}
-@keyframes sm-drift {
-  to { background-position: -192px -128px; }
-}
-
-.sm-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 440px);
-  gap: 48px;
-  align-items: center;
-  width: 100%;
-  max-width: 1040px;
-}
-
-.sm-hero { text-align: center; }
-.sm-ship {
-  height: clamp(150px, 24vw, 260px);
-  width: auto;
-  transform: rotate(160deg);
-  animation: sm-bob 4s ease-in-out infinite alternate;
-  filter: drop-shadow(0 14px 10px rgba(0, 50, 80, 0.45));
-}
-@keyframes sm-bob {
-  from { transform: rotate(160deg) translateY(0); }
-  to { transform: rotate(166deg) translateY(-10px); }
-}
-.sm-title {
-  margin: 20px 0 10px;
-  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
-  font-size: clamp(38px, 6.5vw, 72px);
-  line-height: 1.02;
-  font-weight: 800;
-  color: #ffffff;
-  -webkit-text-stroke: 8px #0b2a40;
-  paint-order: stroke fill;
-  text-shadow: 0 6px 0 #0b2a40;
-}
-.sm-tagline {
-  margin: 0 auto;
-  max-width: 30ch;
-  font-size: 19px;
-  line-height: 1.4;
-  color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0, 40, 70, 0.8);
-}
-
-.sm-panel {
-  display: flex;
-  flex-direction: column;
-  padding: 28px 28px 30px;
-  background-color: #f3d9a4;
-  background-image: url('${TILES}/tile_4.png');
-  background-size: 160px;
-  border: 3px solid #8a6a2f;
-  border-radius: 18px;
-  box-shadow: 0 10px 0 #7a5a2a, 0 24px 32px rgba(0, 40, 70, 0.35);
-}
-.sm-label { font-weight: 700; font-size: 15px; margin-bottom: 8px; }
-.sm-input {
-  padding: 12px 14px;
-  font-size: 16px;
-  color: #3b2a1a;
-  background: #fff8e6;
-  border: 2px solid #8a6a2f;
-  border-radius: 10px;
-}
-.sm-input::placeholder { color: #8a7355; }
-
-.sm-controls-title {
-  margin: 24px 0 10px;
-  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
-  font-size: 18px;
-}
-.sm-controls { list-style: none; margin: 0 0 24px; padding: 0; display: grid; gap: 10px; }
-.sm-controls li {
-  display: grid;
-  grid-template-columns: 132px 1fr;
-  align-items: center;
-  gap: 12px;
-  font-size: 14px;
-}
-.sm-keys { display: flex; gap: 4px; }
-kbd {
-  min-width: 28px;
-  padding: 2px 8px;
-  text-align: center;
-  font: 700 13px 'Segoe UI', sans-serif;
-  color: #3b2a1a;
-  background: #fff8e6;
-  border: 2px solid #8a6a2f;
-  border-bottom-width: 4px;
-  border-radius: 6px;
-}
-kbd.sm-wide { padding: 2px 14px; }
-
-.sm-start {
-  padding: 14px;
-  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
-  font-size: 19px;
-  font-weight: 800;
-  color: #ffffff;
-  background: #2f7d3a;
-  border: none;
-  border-bottom: 5px solid #1f5a29;
-  border-radius: 12px;
-  cursor: pointer;
-}
-.sm-start:hover:not(:disabled) { background: #368a42; }
-.sm-start:active:not(:disabled) { transform: translateY(3px); border-bottom-width: 2px; }
-.sm-start:disabled {
-  background: #9aa88f;
-  border-bottom-color: #7c8873;
-  cursor: not-allowed;
-}
-
-.sm-input:focus-visible,
-.sm-start:focus-visible {
-  outline: 3px solid #0b5f95;
-  outline-offset: 3px;
-}
-
-@media (max-width: 820px) {
-  .sm-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
-  .sm-ship { height: 110px; }
-  .sm-title { margin-top: 8px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .sm-root, .sm-ship { animation: none; }
-}
-`
